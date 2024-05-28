@@ -1,3 +1,5 @@
+import { ILeaderboard } from "../assets/resources/interfaces";
+
 const Leaderboard = ({ leadersList }: { leadersList: ILeaderboard[] }) => {
   return (
     <section className="w-full h-full py-12 px-12">

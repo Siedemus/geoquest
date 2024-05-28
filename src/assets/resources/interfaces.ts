@@ -1,4 +1,4 @@
-interface ILeaderboard {
+export interface ILeaderboard {
   rank: number;
   name: string;
   score: number;
