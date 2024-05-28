@@ -1,4 +1,12 @@
 const App = () => {
+  const tempLeaders = [
+    { rank: 1, name: "PLAPLAPLAPLA", score: 100, location: "New York" },
+    { rank: 2, name: "Player 2", score: 90, location: "Los Angeles" },
+    { rank: 3, name: "Player 3", score: 80, location: "Chicago" },
+    { rank: 4, name: "Player 3", score: 80, location: "Chicago" },
+    { rank: 5, name: "Player 3", score: 80, location: "Chicago" },
+  ];
+
   const tutorialSteps = [
     {
       title: "Step 1: Log In",
@@ -59,8 +67,11 @@ const App = () => {
           How to play?
         </h2>
         <ul className="flex justify-evenly flex-wrap gap-8 gap-y-16">
-          {tutorialSteps.map((step) => (
-            <li className="bg-salt rounded-lg flex items-center flex-col text-cloudy max-w-[300px] border-2 hover:scale-105 duration-1000">
+          {tutorialSteps.map((step, i) => (
+            <li
+              key={i}
+              className="bg-salt rounded-lg flex items-center flex-col text-cloudy max-w-[300px] border-2 hover:scale-105 duration-1000"
+            >
               <img
                 src={step.src}
                 className="w-full h-52 object-cover rounded-t-lg"
@@ -74,6 +85,32 @@ const App = () => {
             </li>
           ))}
         </ul>
+      </section>
+      <section className="w-full h-full py-12 px-12">
+        <h2 className="font-extrabold text-4xl text-center md:text-left mb-12 md:text-6xl font-libreFranklin">
+          Leaderboard
+        </h2>
+        <div className="bg-salt p-4 md:p-10 md:mx-6 rounded-md overflow-x-auto">
+          <table className="w-full">
+            <tr className="border-b border-noise">
+              <td className="text-xl font-bold p-4">Rank</td>
+              <td className="text-xl font-bold p-4">Player</td>
+              <td className="text-xl font-bold p-4">Score</td>
+              <td className="text-xl font-bold p-4">Locattion</td>
+            </tr>
+            {tempLeaders.map((leader, i) => (
+              <tr
+                key={i}
+                className="border-b border-noise last:border-none hover:bg-gray-700 duration-700"
+              >
+                <td className="p-4">{leader.rank}</td>
+                <td className="p-4">{leader.name}</td>
+                <td className="p-4">{leader.score}</td>
+                <td className="p-4">{leader.location}</td>
+              </tr>
+            ))}
+          </table>
+        </div>
       </section>
     </>
   );
