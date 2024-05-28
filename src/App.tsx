@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Leaderboard from "./components/Leaderboard";
 import Tutorial from "./components/Tutorial";
@@ -16,6 +17,7 @@ const App = () => {
       <Hero />
       <Tutorial />
       <Leaderboard leadersList={tempLeaders} />
+      <Footer />
     </>
   );
 };
