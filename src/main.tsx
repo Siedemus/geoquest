@@ -4,12 +4,22 @@ import App from "./App.tsx";
 import "./globals.css";
 import AuthProvider from "./components/AuthProvider.tsx";
 import Navigation from "./components/Navigation.tsx";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import RouteError from "./components/RouteError.tsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <RouteError />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <AuthProvider>
       <Navigation />
-      <App />
+      <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>
 );
