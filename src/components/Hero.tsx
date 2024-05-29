@@ -1,4 +1,8 @@
+import { LogIn, LogOut, useAuthContext } from "./AuthProvider";
+
 const Hero = () => {
+  const auth = useAuthContext();
+
   return (
     <main className="flex flex-col items-center mt-24 md:mt-48 text-center p-2 pb-0 gap-6">
       <h2 className="bg-pastelRainbow text-transparent bg-clip-text font-extrabold text-5xl md:text-7xl max-w-7xl animate-pastel">
@@ -9,8 +13,11 @@ const Hero = () => {
         challenged to identify locations around the world based on visual clues
         from images.
       </p>
-      {true ? (
-        <button className="bg-pastelRainbowButton text-noise px-4 py-2 rounded-md text-lg font-bold bg-left bg-buttonZoom hover:bg-right duration-[1.5s] flex gap-2 items-center">
+      {!auth?.user ? (
+        <button
+          onClick={LogIn}
+          className="bg-pastelRainbowButton text-noise px-4 py-2 rounded-md text-lg font-bold bg-left bg-buttonZoom hover:bg-right duration-[1.5s] flex gap-2 items-center"
+        >
           Log In with <img src="src/assets/images/google.png" className="w-6" />
         </button>
       ) : (
@@ -18,7 +25,10 @@ const Hero = () => {
           <button className="bg-pastelRainbowButton text-noise px-8 py-2 rounded-md text-lg font-bold bg-left bg-buttonZoom hover:bg-right duration-[1.5s]">
             Play
           </button>
-          <button className="bg-pastelRainbowButton text-noise px-8 py-2 rounded-md text-lg font-bold bg-left bg-buttonZoom hover:bg-right duration-[1.5s]">
+          <button
+            onClick={LogOut}
+            className="bg-pastelRainbowButton text-noise px-8 py-2 rounded-md text-lg font-bold bg-left bg-buttonZoom hover:bg-right duration-[1.5s]"
+          >
             Log Out
           </button>
         </div>

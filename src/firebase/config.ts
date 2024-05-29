@@ -1,0 +1,15 @@
+import { initializeApp } from "firebase/app";
+import { GoogleAuthProvider, getAuth, signInWithRedirect } from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAXzda4oObdskuCiFgqCOMGm1irOuswiPA",
+  authDomain: "geoquest-acd74.firebaseapp.com",
+  projectId: "geoquest-acd74",
+  storageBucket: "geoquest-acd74.appspot.com",
+  messagingSenderId: "272150897202",
+  appId: "1:272150897202:web:4f399afe792e417544922b",
+  measurementId: "G-RKPXLDY4HE",
+};
+
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
