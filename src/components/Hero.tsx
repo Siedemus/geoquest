@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { LogIn, LogOut, useAuthContext } from "./AuthProvider";
 
 const Hero = () => {
   const auth = useAuthContext();
+  const navigate = useNavigate();
 
   return (
     <main className="flex flex-col items-center mt-24 md:mt-48 text-center p-2 pb-0 gap-6">
@@ -22,7 +24,10 @@ const Hero = () => {
         </button>
       ) : (
         <div className="flex gap-5">
-          <button className="bg-pastelRainbowButton text-noise px-8 py-2 rounded-md text-lg font-bold bg-left bg-buttonZoom hover:bg-right duration-[1.5s]">
+          <button
+            onClick={() => navigate("/play")}
+            className="bg-pastelRainbowButton text-noise px-8 py-2 rounded-md text-lg font-bold bg-left bg-buttonZoom hover:bg-right duration-[1.5s]"
+          >
             Play
           </button>
           <button
