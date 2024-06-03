@@ -6,7 +6,7 @@ import AuthProvider from "./components/AuthProvider.tsx";
 import Navigation from "./components/Navigation.tsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RouteError from "./components/RouteError.tsx";
-import Game from "./components/Game.tsx";
+import Game from "./components/game/Game.tsx";
 
 const router = createBrowserRouter([
   {

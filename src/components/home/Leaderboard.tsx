@@ -1,4 +1,4 @@
-import { ILeaderboard } from "../assets/resources/interfaces";
+import { ILeaderboard } from "../../assets/resources/interfaces";
 
 const Leaderboard = ({ leadersList }: { leadersList: ILeaderboard[] }) => {
   return (

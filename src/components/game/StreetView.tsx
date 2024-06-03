@@ -6,11 +6,14 @@ const StreetView = ({
   locations: { lat: number; lng: number }[];
 }) => {
   const containerRef = useRef(null);
+  const getRandomLocation = () => {
+    return locations[Math.floor(Math.random() * locations.length)];
+  };
 
   useEffect(() => {
     if (containerRef.current) {
       new window.google.maps.StreetViewPanorama(containerRef.current, {
-        position: locations[38],
+        position: getRandomLocation(),
         pov: { heading: 165, pitch: 0 },
         zoom: 1,
         disableDefaultUI: true,
