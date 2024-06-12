@@ -1,19 +1,16 @@
 import { useEffect, useRef } from "react";
 
 const StreetView = ({
-  locations,
+  initialPosition,
 }: {
-  locations: { lat: number; lng: number }[];
+  initialPosition: { lat: number; lng: number };
 }) => {
   const containerRef = useRef(null);
-  const getRandomLocation = () => {
-    return locations[Math.floor(Math.random() * locations.length)];
-  };
 
   useEffect(() => {
     if (containerRef.current) {
       new window.google.maps.StreetViewPanorama(containerRef.current, {
-        position: getRandomLocation(),
+        position: initialPosition,
         pov: { heading: 165, pitch: 0 },
         zoom: 1,
         disableDefaultUI: true,
@@ -26,7 +23,7 @@ const StreetView = ({
     }
   }, []);
 
-  return <div className="w-full h-full" ref={containerRef}></div>;
+  return <div ref={containerRef} className="w-full h-full"></div>;
 };
 
 export default StreetView;
