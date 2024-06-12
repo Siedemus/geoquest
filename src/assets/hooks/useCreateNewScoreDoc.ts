@@ -1,22 +1,49 @@
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { LatLng } from "leaflet";
+import { useState } from "react";
 
-const useCreateNewScoreDoc = (
-  score: number,
-  userUid: string,
-  name: string,
-  selectedLocation: LatLng
-) => {
-  const formattedLocation = `${selectedLocation.lat}, ${selectedLocation.lng}`;
+const useCreateNewScoreDoc = (): [
+  (
+    score: number,
+    userUid: string,
+    name: string | null | undefined,
+    selectedPosition: LatLng,
+    date: number
+  ) => Promise<void>,
+  boolean,
+  string | null
+] => {
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  setDoc(doc(db, "scores", Date.now() + userUid), {
-    score,
-    userUid,
-    name,
-    location: formattedLocation,
-  });
-  console.log("cos");
+  const createNewScoreDoc = async (
+    score: number,
+    userUid: string,
+    name: string | null | undefined,
+    selectedPosition: LatLng,
+    date: number
+  ) => {
+    try {
+      setIsPending(true);
+      const formattedPosition = `${selectedPosition.lat}, ${selectedPosition.lng}`;
+
+      await setDoc(doc(db, "scores", date + userUid), {
+        score,
+        userUid,
+        name: name ? name : "Anonymous",
+        position: formattedPosition,
+        date,
+      });
+
+      setIsPending(false);
+    } catch (e: any) {
+      setIsPending(false);
+      setError(e.message || "Something went wrong during score submission.");
+    }
+  };
+
+  return [createNewScoreDoc, isPending, error];
 };
 
 export default useCreateNewScoreDoc;
