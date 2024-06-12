@@ -1,6 +1,6 @@
 import { LatLng } from "leaflet";
 
-const useDistanceInKm = (
+const calculateDistanceInKm = (
   selectedPosition: LatLng,
   initialPosition: { lat: number; lng: number }
 ) => {
@@ -22,4 +22,4 @@ const deg2rad = (deg: number) => {
   return deg * (Math.PI / 180);
 };
 
-export default useDistanceInKm;
+export default calculateDistanceInKm;
