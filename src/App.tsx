@@ -7,13 +7,6 @@ import Tutorial from "./components/home/Tutorial";
 
 const App = () => {
   const auth = useAuthContext();
-  const tempLeaders = [
-    { rank: 1, name: "PLAPLAPLAPLA", score: 100, location: "New York" },
-    { rank: 2, name: "Player 2", score: 90, location: "Los Angeles" },
-    { rank: 3, name: "Player 3", score: 80, location: "Chicago" },
-    { rank: 4, name: "Player 3", score: 80, location: "Chicago" },
-    { rank: 5, name: "Player 3", score: 80, location: "Chicago" },
-  ];
 
   return (
     <>
@@ -25,7 +18,7 @@ const App = () => {
         <>
           <Hero />
           <Tutorial />
-          <Leaderboard leadersList={tempLeaders} />
+          <Leaderboard />
           <Footer />
         </>
       )}
