@@ -7,6 +7,8 @@ import Navigation from "./components/Navigation.tsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RouteError from "./components/RouteError.tsx";
 import Game from "./components/game/Game.tsx";
+import { Toaster } from "sonner";
+import { LoadScript } from "@react-google-maps/api";
 
 const router = createBrowserRouter([
   {
@@ -22,9 +24,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <AuthProvider>
-      <Navigation />
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <LoadScript googleMapsApiKey="AIzaSyAcKzJ9-X_B0NVUMM1t1lxbmJ2_O9VUib4">
+      <AuthProvider>
+        <Navigation />
+        <RouterProvider router={router} />
+        <Toaster richColors />
+      </AuthProvider>
+    </LoadScript>
   </React.StrictMode>
 );
