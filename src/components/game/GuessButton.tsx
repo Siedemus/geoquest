@@ -1,4 +1,6 @@
-const GuessButton = ({ handleAGuess }: { handleAGuess: () => void }) => {
+import { IGuessButtonProps } from "../../assets/resources/types";
+
+const GuessButton = ({ handleAGuess }: IGuessButtonProps) => {
   return (
     <button
       onClick={handleAGuess}

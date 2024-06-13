@@ -1,23 +1,9 @@
-import {
-  collection,
-  getDocs,
-  limit,
-  orderBy,
-  query,
-} from "firebase/firestore";
+import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useEffect, useState } from "react";
+import { UseGetBestScoresReturn } from "../resources/types";
 
-const useGetBestScores = (): [
-  bestScores: {
-    rank: number;
-    name: string;
-    score: number;
-    position: string;
-  }[],
-  isPending: boolean,
-  error: null | string
-] => {
+const useGetBestScores = (): UseGetBestScoresReturn => {
   const [bestScores, setBestScores] = useState<
     {
       rank: number;

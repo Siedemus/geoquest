@@ -1,15 +1,13 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import MoveableMarker from "./MoveableMarker";
-import { IPositionState } from "../../assets/resources/interfaces";
+import { IPlaceSelectorProps } from "../../assets/resources/types";
 import GuessButton from "./GuessButton";
 
 const PlaceSelector = ({
-  positionState,
+  selectedPosition,
+  setSelectedPosition,
   handleAGuess,
-}: {
-  positionState: IPositionState;
-  handleAGuess: () => void;
-}) => {
+}: IPlaceSelectorProps) => {
   return (
     <div className="w-full h-[40vh] md:h-[30vh] relative">
       <MapContainer
@@ -21,7 +19,10 @@ const PlaceSelector = ({
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <MoveableMarker positionState={positionState} />
+        <MoveableMarker
+          selectedPosition={selectedPosition}
+          setSelectedPosition={setSelectedPosition}
+        />
       </MapContainer>
       <GuessButton handleAGuess={handleAGuess} />
     </div>

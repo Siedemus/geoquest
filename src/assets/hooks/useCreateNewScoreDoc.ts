@@ -2,18 +2,9 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { LatLng } from "leaflet";
 import { useState } from "react";
+import { UseCreateNewScoreDocReturn } from "../resources/types";
 
-const useCreateNewScoreDoc = (): [
-  (
-    score: number,
-    userUid: string,
-    name: string | null | undefined,
-    selectedPosition: LatLng,
-    date: number
-  ) => Promise<void>,
-  boolean,
-  string | null
-] => {
+const useCreateNewScoreDoc = (): UseCreateNewScoreDocReturn => {
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

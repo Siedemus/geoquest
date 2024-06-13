@@ -61,7 +61,8 @@ const Game = () => {
     <>
       <StreetViewContainer initialPosition={initialPosition} />
       <PlaceSelector
-        positionState={{ selectedPosition, setSelectedPosition }}
+        selectedPosition={selectedPosition}
+        setSelectedPosition={setSelectedPosition}
         handleAGuess={handleAGuess}
       />
     </>

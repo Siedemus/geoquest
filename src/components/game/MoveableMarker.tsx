@@ -1,22 +1,17 @@
 import { Marker, useMapEvents } from "react-leaflet";
-import { IPositionState } from "../../assets/resources/interfaces";
+import { IMovableMarkerProps } from "../../assets/resources/types";
 
 const MoveableMarker = ({
-  positionState,
-}: {
-  positionState: IPositionState;
-}) => {
+  selectedPosition,
+  setSelectedPosition,
+}: IMovableMarkerProps) => {
   useMapEvents({
     click: (e) => {
-      positionState.setSelectedPosition(e.latlng);
+      setSelectedPosition(e.latlng);
     },
   });
 
-  return (
-    positionState.selectedPosition && (
-      <Marker position={positionState.selectedPosition} />
-    )
-  );
+  return selectedPosition && <Marker position={selectedPosition} />;
 };
 
 export default MoveableMarker;

@@ -1,11 +1,9 @@
 import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useEffect, useState } from "react";
+import { UseGetRankReturn } from "../resources/types";
 
-const useGetRank = (
-  userUid: string,
-  date: number
-): [rank: number, isPending: boolean, error: null | string] => {
+const useGetRank = (userUid: string, date: number): UseGetRankReturn => {
   const [rank, setRank] = useState(0);
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState<null | string>(null);

@@ -3,23 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { ThreeDot } from "react-loading-indicators";
 import useGetRank from "../../assets/hooks/useGetRank";
 import getInitialPosition from "../../assets/utils/getInitialPosition";
+import { IScoreContainerProps } from "../../assets/resources/types";
 
 const ScoreContainer = ({
   score,
   date,
   setShowScore,
   setInitialPosition,
-}: {
-  score: number | "0000";
-  date: number;
-  setShowScore: React.Dispatch<React.SetStateAction<boolean>>;
-  setInitialPosition: React.Dispatch<
-    React.SetStateAction<{
-      lat: number;
-      lng: number;
-    }>
-  >;
-}) => {
+}: IScoreContainerProps) => {
   const auth = useAuthContext();
   const [rank, isPending, error] = useGetRank(auth?.user?.uid!, date);
   const navigate = useNavigate();

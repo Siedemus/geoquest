@@ -1,12 +1,9 @@
 import { GoogleMap } from "@react-google-maps/api";
 import { useEffect, useState } from "react";
 import StreetView from "./StreetView";
+import { IStreetViewProps } from "../../assets/resources/types";
 
-const StreetViewContainer = ({
-  initialPosition,
-}: {
-  initialPosition: { lat: number; lng: number };
-}) => {
+const StreetViewContainer = ({ initialPosition }: IStreetViewProps) => {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
