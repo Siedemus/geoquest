@@ -14,35 +14,39 @@ const Leaderboard = () => {
           <Commet color={"white"} size="large" />
         ) : (
           <table className="w-full">
-            <tr className="border-b border-noise">
-              <td className="text-xl font-bold p-4">Rank</td>
-              <td className="text-xl font-bold p-4">Player</td>
-              <td className="text-xl font-bold p-4">Score</td>
-              <td className="text-xl font-bold p-4">Location</td>
-            </tr>
-            {error === null ? (
-              bestScores.map((score) => (
-                <tr
-                  key={score.rank}
-                  className="border-b border-noise last:border-none hover:bg-gray-700 duration-700"
-                >
-                  <td className="p-4">{score.rank}</td>
-                  <td className="p-4">{score.name}</td>
-                  <td className="p-4">{score.score}</td>
-                  <td className="p-4">{score.position}</td>
-                </tr>
-              ))
-            ) : (
-              <tr className="border-b border-noise last:border-none hover:bg-gray-700 duration-700">
-                <td className="p-4">-1</td>
-                <td className="p-4">ERROR</td>
-                <td className="p-4">#404</td>
-                <td className="p-4">
-                  We cant find any leader's right now, probably they are here:
-                  -12.126317597931406, 96.8649910519608
-                </td>
+            <thead>
+              <tr className="border-b border-noise">
+                <td className="text-xl font-bold p-4">Rank</td>
+                <td className="text-xl font-bold p-4">Player</td>
+                <td className="text-xl font-bold p-4">Score</td>
+                <td className="text-xl font-bold p-4">Location</td>
               </tr>
-            )}
+            </thead>
+            <tbody>
+              {error === null ? (
+                bestScores.map((score) => (
+                  <tr
+                    key={score.rank}
+                    className="border-b border-noise last:border-none hover:bg-gray-700 duration-700"
+                  >
+                    <td className="p-4">{score.rank}</td>
+                    <td className="p-4">{score.name}</td>
+                    <td className="p-4">{score.score}</td>
+                    <td className="p-4">{score.position}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr className="border-b border-noise last:border-none hover:bg-gray-700 duration-700">
+                  <td className="p-4">-1</td>
+                  <td className="p-4">ERROR</td>
+                  <td className="p-4">#404</td>
+                  <td className="p-4">
+                    We cant find any leader's right now, probably they are here:
+                    -12.126317597931406, 96.8649910519608
+                  </td>
+                </tr>
+              )}
+            </tbody>
           </table>
         )}
       </div>
