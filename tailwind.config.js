@@ -11,6 +11,7 @@ export default {
         cloudy: "#FFFFFF",
         noise: "#737373",
         salt: "#0F0F0F",
+        stone: "#969696",
       },
       backgroundSize: {
         buttonZoom: "700%",
