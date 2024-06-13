@@ -24,6 +24,9 @@ const Navigation = () => {
                 <img
                   className="rounded-full w-10 p-0.5"
                   src={auth.user.photoURL!}
+                  alt={`${
+                    auth.user.photoURL ? auth.user.photoURL : "Anonymous"
+                  } profile picture.`}
                 />
               </li>
             </>

@@ -38,6 +38,7 @@ const Tutorial = () => {
             className="bg-salt rounded-lg flex items-center flex-col text-cloudy max-w-[300px] border-2 hover:scale-105 duration-1000"
           >
             <img
+              alt={step.description}
               src={step.src}
               className="w-full h-52 object-cover rounded-t-lg"
             />
