@@ -1,14 +1,14 @@
 import PlaceSelector from "./PlaceSelector";
 import StreetViewContainer from "./StreetViewContainer";
 import ScoreContainer from "./ScoreContainer";
-import useCreateNewScoreDoc from "../../assets/hooks/useCreateNewScoreDoc";
-import { useAuthContext } from "../AuthProvider";
+import useCreateNewScoreDoc from "../../hooks/useCreateNewScoreDoc";
+import { useAuthContext } from "../../context/AuthProvider";
 import { LatLng } from "leaflet";
 import { toast } from "sonner";
 import { useState } from "react";
-import getInitialPosition from "../../assets/utils/getInitialPosition";
-import calculateDistanceInKm from "../../assets/utils/calculateDistanceInKm";
-import calculatePoints from "../../assets/utils/calculatePoints";
+import getInitialPosition from "../../utils/getInitialPosition";
+import calculateDistanceInKm from "../../utils/calculateDistanceInKm";
+import calculatePoints from "../../utils/calculatePoints";
 
 const Game = () => {
   const [selectedPosition, setSelectedPosition] = useState<null | LatLng>(null);

@@ -1,4 +1,4 @@
-import useGetBestScores from "../../assets/hooks/useGetBestScores";
+import useGetBestScores from "../../hooks/useGetBestScores";
 import { Commet } from "react-loading-indicators";
 
 const Leaderboard = () => {

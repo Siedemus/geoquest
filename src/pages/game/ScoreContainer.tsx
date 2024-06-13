@@ -1,9 +1,9 @@
-import { useAuthContext } from "../AuthProvider";
+import { useAuthContext } from "../../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { ThreeDot } from "react-loading-indicators";
-import useGetRank from "../../assets/hooks/useGetRank";
-import getInitialPosition from "../../assets/utils/getInitialPosition";
-import { IScoreContainerProps } from "../../assets/resources/types";
+import useGetRank from "../../hooks/useGetRank";
+import getInitialPosition from "../../utils/getInitialPosition";
+import { IScoreContainerProps } from "../../resources/types";
 
 const ScoreContainer = ({
   score,

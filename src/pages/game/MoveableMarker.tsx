@@ -1,5 +1,5 @@
 import { Marker, useMapEvents } from "react-leaflet";
-import { IMovableMarkerProps } from "../../assets/resources/types";
+import { IMovableMarkerProps } from "../../resources/types";
 
 const MoveableMarker = ({
   selectedPosition,

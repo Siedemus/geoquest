@@ -1,9 +1,9 @@
 import { Commet } from "react-loading-indicators";
-import { useAuthContext } from "./components/AuthProvider";
-import Footer from "./components/home/Footer";
-import Hero from "./components/home/Hero";
-import Leaderboard from "./components/home/Leaderboard";
-import Tutorial from "./components/home/Tutorial";
+import { useAuthContext } from "../../context/AuthProvider";
+import Footer from "./Footer";
+import Hero from "./Hero";
+import Leaderboard from "./Leaderboard";
+import Tutorial from "./Tutorial";
 
 const App = () => {
   const auth = useAuthContext();

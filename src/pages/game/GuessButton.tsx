@@ -1,4 +1,4 @@
-import { IGuessButtonProps } from "../../assets/resources/types";
+import { IGuessButtonProps } from "../../resources/types";
 
 const GuessButton = ({ handleAGuess }: IGuessButtonProps) => {
   return (

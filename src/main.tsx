@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import App from "./pages/home/App.tsx";
 import "./globals.css";
-import AuthProvider from "./components/AuthProvider.tsx";
+import AuthProvider from "./context/AuthProvider.tsx";
 import Navigation from "./components/Navigation.tsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RouteError from "./components/RouteError.tsx";
-import Game from "./components/game/Game.tsx";
+import Game from "./pages/game/Game.tsx";
 import { Toaster } from "sonner";
 import { LoadScript } from "@react-google-maps/api";
 

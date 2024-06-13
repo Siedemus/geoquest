@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { LogIn, LogOut, useAuthContext } from "../AuthProvider";
+import { LogIn, LogOut, useAuthContext } from "../../context/AuthProvider";
 
 const Hero = () => {
   const auth = useAuthContext();

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { IStreetViewProps } from "../../assets/resources/types";
+import { IStreetViewProps } from "../../resources/types";
 
 const StreetView = ({ initialPosition }: IStreetViewProps) => {
   const containerRef = useRef(null);

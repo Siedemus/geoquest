@@ -1,4 +1,4 @@
-import { LogIn, LogOut, useAuthContext } from "./AuthProvider";
+import { LogIn, LogOut, useAuthContext } from "../context/AuthProvider";
 
 const Navigation = () => {
   const auth = useAuthContext();

@@ -1,5 +1,5 @@
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../firebase/config";
+import { db } from "../firebase/config";
 import { LatLng } from "leaflet";
 import { useState } from "react";
 import { UseCreateNewScoreDocReturn } from "../resources/types";

@@ -1,5 +1,5 @@
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
-import { db } from "../../firebase/config";
+import { db } from "../firebase/config";
 import { useEffect, useState } from "react";
 import { UseGetBestScoresReturn } from "../resources/types";
 

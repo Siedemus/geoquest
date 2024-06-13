@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import MoveableMarker from "./MoveableMarker";
-import { IPlaceSelectorProps } from "../../assets/resources/types";
+import { IPlaceSelectorProps } from "../../resources/types";
 import GuessButton from "./GuessButton";
 
 const PlaceSelector = ({
