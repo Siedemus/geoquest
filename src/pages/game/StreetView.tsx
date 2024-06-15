@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
-import { IStreetViewProps } from "../../resources/types";
+import { useContext, useEffect, useRef } from "react";
+import { GameContext } from "../../context/GameContext";
 
-const StreetView = ({ initialPosition }: IStreetViewProps) => {
+const StreetView = () => {
+  const { initialPosition } = useContext(GameContext)!;
   const containerRef = useRef(null);
 
   useEffect(() => {

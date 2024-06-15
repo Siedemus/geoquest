@@ -1,6 +1,45 @@
-import { IGuessButtonProps } from "../../resources/types";
+import { useContext } from "react";
+import { GameContext } from "../../context/GameContext";
+import calculateDistanceInKm from "../../utils/calculateDistanceInKm";
+import calculatePoints from "../../utils/calculatePoints";
+import useCreateNewScoreDoc from "../../hooks/useCreateNewScoreDoc";
+import { useAuthContext } from "../../context/AuthProvider";
+import { toast } from "sonner";
 
-const GuessButton = ({ handleAGuess }: IGuessButtonProps) => {
+const GuessButton = () => {
+  const { selectedPosition, initialPosition, setScore, setDate, setShowScore } =
+    useContext(GameContext)!;
+  const [createNewScoreDoc, isPending, error] = useCreateNewScoreDoc();
+  const auth = useAuthContext();
+
+  const handleAGuess = async () => {
+    if (selectedPosition) {
+      const distanceInKm = calculateDistanceInKm(
+        selectedPosition,
+        initialPosition
+      );
+      const points = calculatePoints(distanceInKm);
+
+      setScore(points);
+
+      if (points !== 0) {
+        const initialDate = Date.now();
+        setDate(initialDate);
+        createNewScoreDoc(
+          points,
+          auth?.user?.uid!,
+          auth?.user?.displayName,
+          selectedPosition,
+          initialDate
+        );
+      }
+
+      setShowScore(true);
+    } else {
+      toast.error("You need to make a guess on the map.");
+    }
+  };
+
   return (
     <button
       onClick={handleAGuess}

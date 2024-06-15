@@ -1,71 +1,26 @@
-import PlaceSelector from "./PlaceSelector";
-import StreetViewContainer from "./StreetViewContainer";
+import { useContext } from "react";
+import { GameContext } from "../../context/GameContext";
 import ScoreContainer from "./ScoreContainer";
-import useCreateNewScoreDoc from "../../hooks/useCreateNewScoreDoc";
-import { useAuthContext } from "../../context/AuthProvider";
-import { LatLng } from "leaflet";
-import { toast } from "sonner";
-import { useState } from "react";
-import getInitialPosition from "../../utils/getInitialPosition";
-import calculateDistanceInKm from "../../utils/calculateDistanceInKm";
-import calculatePoints from "../../utils/calculatePoints";
+import StreetViewContainer from "./StreetViewContainer";
+import PlaceSelector from "./PlaceSelector";
+import ErrorComponent from "../../components/ErrorComponent";
 
 const Game = () => {
-  const [selectedPosition, setSelectedPosition] = useState<null | LatLng>(null);
-  const [initialPosition, setInitialPosition] = useState(() =>
-    getInitialPosition()
-  );
-  const [showScore, setShowScore] = useState(false);
-  const [score, setScore] = useState(0);
-  const [date, setDate] = useState(0);
-  const [createNewScoreDoc, isPending, error] = useCreateNewScoreDoc();
-  const auth = useAuthContext();
-  console.log(initialPosition);
+  const gameContext = useContext(GameContext);
+  const googleMapsApiErrorMessage =
+    "There was an issue loading the Google Maps. Please try again later.";
 
-  const handleAGuess = async () => {
-    if (selectedPosition) {
-      const distanceInKm = calculateDistanceInKm(
-        selectedPosition,
-        initialPosition
-      );
-      const points = calculatePoints(distanceInKm);
-
-      setScore(points);
-
-      if (points !== 0) {
-        const initialDate = Date.now();
-        setDate(initialDate);
-        createNewScoreDoc(
-          points,
-          auth?.user?.uid!,
-          auth?.user?.displayName,
-          selectedPosition,
-          initialDate
-        );
-      }
-
-      setShowScore(true);
-    } else {
-      toast.error("You need to make a guess on the map.");
-    }
-  };
-
-  return showScore ? (
-    <ScoreContainer
-      score={score}
-      date={date}
-      setShowScore={setShowScore}
-      setInitialPosition={setInitialPosition}
-    />
+  return gameContext !== undefined ? (
+    gameContext.showScore ? (
+      <ScoreContainer />
+    ) : (
+      <>
+        <StreetViewContainer />
+        <PlaceSelector />
+      </>
+    )
   ) : (
-    <>
-      <StreetViewContainer initialPosition={initialPosition} />
-      <PlaceSelector
-        selectedPosition={selectedPosition}
-        setSelectedPosition={setSelectedPosition}
-        handleAGuess={handleAGuess}
-      />
-    </>
+    <ErrorComponent errorMessage={googleMapsApiErrorMessage} />
   );
 };
 

@@ -1,13 +1,12 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import MoveableMarker from "./MoveableMarker";
-import { IPlaceSelectorProps } from "../../resources/types";
 import GuessButton from "./GuessButton";
+import { useContext } from "react";
+import { GameContext } from "../../context/GameContext";
 
-const PlaceSelector = ({
-  selectedPosition,
-  setSelectedPosition,
-  handleAGuess,
-}: IPlaceSelectorProps) => {
+const PlaceSelector = () => {
+  const { selectedPosition, setSelectedPosition } = useContext(GameContext)!;
+
   return (
     <div className="w-full h-[40vh] md:h-[30vh] relative">
       <MapContainer
@@ -24,7 +23,7 @@ const PlaceSelector = ({
           setSelectedPosition={setSelectedPosition}
         />
       </MapContainer>
-      <GuessButton handleAGuess={handleAGuess} />
+      <GuessButton />
     </div>
   );
 };
