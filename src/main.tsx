@@ -10,6 +10,7 @@ import Game from "./pages/game/Game.tsx";
 import { Toaster } from "sonner";
 import { LoadScript } from "@react-google-maps/api";
 import { Commet } from "react-loading-indicators";
+import GameContextProvider from "./context/GameContext.tsx";
 
 const router = createBrowserRouter([
   {
@@ -19,21 +20,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/play",
-    element: <Game />,
+    element: (
+      <GameContextProvider>
+        <Game />
+      </GameContextProvider>
+    ),
   },
 ]);
 
+const loadScriptProps = {
+  preventGoogleFontsLoading: true,
+  loadingElement: (
+    <div className="mx-auto my-80 w-max">
+      <Commet color="lightBlue" size="medium" />
+    </div>
+  ),
+  googleMapsApiKey: `${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&loading=async`,
+};
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <LoadScript
-      preventGoogleFontsLoading={true}
-      loadingElement={
-        <div className="mx-auto my-80 w-max">
-          <Commet color="lightBlue" size="medium" />
-        </div>
-      }
-      googleMapsApiKey="AIzaSyAcKzJ9-X_B0NVUMM1t1lxbmJ2_O9VUib4&loading=async"
-    >
+    <LoadScript {...loadScriptProps}>
       <AuthProvider>
         <Navigation />
         <RouterProvider router={router} />
