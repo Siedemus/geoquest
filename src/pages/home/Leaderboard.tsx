@@ -24,17 +24,26 @@ const Leaderboard = () => {
             </thead>
             <tbody>
               {error === null ? (
-                bestScores.map((score) => (
-                  <tr
-                    key={score.rank}
-                    className="border-b border-noise last:border-none hover:bg-gray-700 duration-700"
-                  >
-                    <td className="p-4">{score.rank}</td>
-                    <td className="p-4">{score.name}</td>
-                    <td className="p-4">{score.score}</td>
-                    <td className="p-4">{score.position}</td>
+                bestScores.length !== 0 ? (
+                  bestScores.map((score) => (
+                    <tr
+                      key={score.rank}
+                      className="border-b border-noise last:border-none hover:bg-gray-700 duration-700"
+                    >
+                      <td className="p-4">{score.rank}</td>
+                      <td className="p-4">{score.name}</td>
+                      <td className="p-4">{score.score}</td>
+                      <td className="p-4">{score.position}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr className="border-b border-noise last:border-none hover:bg-gray-700 duration-700">
+                    <td className="p-4">No rank</td>
+                    <td className="p-4">-</td>
+                    <td className="p-4">-</td>
+                    <td className="p-4">-</td>
                   </tr>
-                ))
+                )
               ) : (
                 <tr className="border-b border-noise last:border-none hover:bg-gray-700 duration-700">
                   <td className="p-4">-1</td>
