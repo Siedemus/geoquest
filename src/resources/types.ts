@@ -1,36 +1,5 @@
 import { LatLng } from "leaflet";
 
-export interface IStreetViewProps {
-  initialPosition: { lat: number; lng: number };
-}
-
-export interface IScoreContainerProps {
-  score: number;
-  date: number;
-  setShowScore: React.Dispatch<React.SetStateAction<boolean>>;
-  setInitialPosition: React.Dispatch<
-    React.SetStateAction<{
-      lat: number;
-      lng: number;
-    }>
-  >;
-}
-
-export interface IPlaceSelectorProps {
-  selectedPosition: LatLng | null;
-  setSelectedPosition: React.Dispatch<React.SetStateAction<LatLng | null>>;
-  handleAGuess: () => void;
-}
-
-export interface IMovableMarkerProps {
-  selectedPosition: LatLng | null;
-  setSelectedPosition: React.Dispatch<React.SetStateAction<LatLng | null>>;
-}
-
-export interface IGuessButtonProps {
-  handleAGuess: () => void;
-}
-
 export type UseCreateNewScoreDocReturn = [
   (
     score: number,
@@ -59,3 +28,26 @@ export type UseGetRankReturn = [
   isPending: boolean,
   error: null | string
 ];
+
+export interface IGameContext {
+  selectedPosition: LatLng | null;
+  setSelectedPosition: React.Dispatch<React.SetStateAction<LatLng | null>>;
+  initialPosition: {
+    lat: number;
+    lng: number;
+  };
+  setInitialPosition: React.Dispatch<
+    React.SetStateAction<{
+      lat: number;
+      lng: number;
+    }>
+  >;
+  showScore: boolean;
+  setShowScore: React.Dispatch<React.SetStateAction<boolean>>;
+  score: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+  date: number;
+  setDate: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export type ErrorComponentProps = { errorMessage: string };
