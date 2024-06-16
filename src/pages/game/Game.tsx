@@ -34,7 +34,7 @@ const Game = () => {
       <ErrorComponent errorMessage={googleMapsApiErrorMessage} />
     )
   ) : (
-    handleNotAuthorizedUser()
+    <>{handleNotAuthorizedUser()}</>
   );
 };
 
