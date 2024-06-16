@@ -10,24 +10,34 @@ import {
   GoogleAuthProvider,
   User,
   onAuthStateChanged,
-  signInWithRedirect,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
+import { IAuthContext } from "../resources/types";
+import { toast } from "sonner";
 
-const AuthContext = createContext<null | {
-  user: User | null;
-  pending: boolean;
-}>(null);
+const AuthContext = createContext<null | IAuthContext>(null);
+
 export const useAuthContext = () => useContext(AuthContext);
 
 const googleProvider = new GoogleAuthProvider();
 
-export const LogIn = () => {
-  signInWithRedirect(auth, googleProvider);
+export const LogIn = async () => {
+  try {
+    await signInWithPopup(auth, googleProvider);
+    toast.success("Successfully logged in.");
+  } catch (e: any) {
+    toast.error("Something went wrong: ", e.message);
+  }
 };
 
-export const LogOut = () => {
-  signOut(auth);
+export const LogOut = async () => {
+  try {
+    await signOut(auth);
+    toast.success("Successfully logged out.");
+  } catch (e: any) {
+    toast.error("Something went wrong: ", e.message);
+  }
 };
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {

@@ -1,3 +1,4 @@
+import { User } from "firebase/auth";
 import { LatLng } from "leaflet";
 
 export type UseCreateNewScoreDocReturn = [
@@ -51,3 +52,8 @@ export interface IGameContext {
 }
 
 export type ErrorComponentProps = { errorMessage: string };
+
+export interface IAuthContext {
+  user: User | null;
+  pending: boolean;
+}
