@@ -3,13 +3,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAXzda4oObdskuCiFgqCOMGm1irOuswiPA",
-  authDomain: "geoquest-acd74.firebaseapp.com",
-  projectId: "geoquest-acd74",
-  storageBucket: "geoquest-acd74.appspot.com",
-  messagingSenderId: "272150897202",
-  appId: "1:272150897202:web:4f399afe792e417544922b",
-  measurementId: "G-RKPXLDY4HE",
+  apiKey: import.meta.env.VITE_GOOGLE_API_KEY,
+  authDomain: import.meta.env.VITE_GOOGLE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_GOOGLE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_GOOGLE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_GOOGLE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_GOOGLE_APP_ID,
 };
 
 export const app = initializeApp(firebaseConfig);

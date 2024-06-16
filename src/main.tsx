@@ -22,7 +22,7 @@ const loadScriptProps = {
       <Commet color="lightBlue" size="medium" />
     </div>
   ),
-  googleMapsApiKey: `${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&loading=async`,
+  googleMapsApiKey: `${import.meta.env.VITE_GOOGLE_API_KEY}&loading=async`,
 };
 
 const router = createBrowserRouter([
