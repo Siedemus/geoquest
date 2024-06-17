@@ -5,7 +5,7 @@ import Hero from "./Hero";
 import Leaderboard from "./Leaderboard";
 import Tutorial from "./Tutorial";
 
-const App = () => {
+const Home = () => {
   const auth = useAuthContext();
 
   return (
@@ -26,4 +26,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;
