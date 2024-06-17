@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { LogOut, useAuthContext } from "../../context/AuthProvider";
+import { useGetLastScore } from "../../hooks/useGetDashboardData";
 
 const Dashboard = () => {
   const auth = useAuthContext();
   const navigate = useNavigate();
+  const [lastScore, globalRank, totalScores, isPending, error] =
+    useGetLastScore(auth?.user?.uid!);
 
   const handleLogOut = () => {
     LogOut();
@@ -32,19 +35,25 @@ const Dashboard = () => {
             <p className="text-2xl font-extrabold font-libreFranklin">
               Last Score
             </p>
-            <p className="text-4xl font-bold p-1">1000</p>
+            <p className="text-4xl font-bold p-1">
+              {lastScore ? lastScore : "No score"}
+            </p>
           </article>
           <article className="bg-cosmic w-full p-4 rounded-lg">
             <p className="text-2xl font-extrabold font-libreFranklin">
               Global Rank
             </p>
-            <p className="text-4xl font-bold p-1">23</p>
+            <p className="text-4xl font-bold p-1">
+              {globalRank ? globalRank : "No rank"}
+            </p>
           </article>
           <article className="bg-cosmic w-full p-4 rounded-lg">
             <p className="text-2xl font-extrabold font-libreFranklin">
               Total Scores
             </p>
-            <p className="text-4xl font-bold p-1">12,456</p>
+            <p className="text-4xl font-bold p-1">
+              {totalScores ? totalScores : "No scores"}
+            </p>
           </article>
         </section>
       </article>

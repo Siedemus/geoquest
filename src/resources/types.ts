@@ -57,3 +57,11 @@ export interface IAuthContext {
   user: User | null;
   pending: boolean;
 }
+
+export type UseGetLastScoreReturn = [
+  score: string | null,
+  globalRank: number | null,
+  totalScores: number | null,
+  isPending: boolean,
+  error: string | null
+];
