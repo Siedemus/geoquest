@@ -3,6 +3,7 @@ import ErrorComponent from "./components/ErrorComponent";
 import GameContextProvider from "./context/GameContext";
 import Game from "./pages/game/Game";
 import Home from "./pages/home/Home";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 const errorMessage =
   "The page you were looking for doesn't exist. Please check the URL or try navigating back to the home page.";
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
         <Game />
       </GameContextProvider>
     ),
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   },
 ]);
 

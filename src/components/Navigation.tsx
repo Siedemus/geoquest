@@ -8,7 +8,7 @@ const Navigation = () => {
       <h1 className="bg-pastelRainbow text-transparent bg-clip-text font-extrabold text-4xl animate-pastel">
         <a href="/">geoQuest</a>
       </h1>
-      <nav className="">
+      <nav>
         <ul className="flex gap-5 items-center">
           {auth?.user ? (
             <>
@@ -21,13 +21,15 @@ const Navigation = () => {
                 </button>
               </li>
               <li className="border-2 rounded-full">
-                <img
-                  className="rounded-full w-10 p-0.5"
-                  src={auth.user.photoURL!}
-                  alt={`${
-                    auth.user.photoURL ? auth.user.photoURL : "Anonymous"
-                  } profile picture.`}
-                />
+                <a href="/dashboard">
+                  <img
+                    className="rounded-full w-10 p-0.5"
+                    src={auth.user.photoURL!}
+                    alt={`${
+                      auth.user.photoURL ? auth.user.photoURL : "Anonymous"
+                    } profile picture.`}
+                  />
+                </a>
               </li>
             </>
           ) : (
