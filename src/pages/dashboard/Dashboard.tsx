@@ -30,7 +30,7 @@ const Dashboard = () => {
         <section className="grid grid-cols-1 gap-5 py-8 w-full lg:w-[50%]">
           <article className="bg-cosmic w-full p-4 rounded-lg">
             <p className="text-2xl font-extrabold font-libreFranklin">
-              Last Scores
+              Last Score
             </p>
             <p className="text-4xl font-bold p-1">1000</p>
           </article>
