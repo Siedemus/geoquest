@@ -1,28 +1,33 @@
+import stepOne from "../../assets/images/stepOne.png";
+import stepTwo from "../../assets/images/stepTwo.png";
+import stepThree from "../../assets/images/stepThree.png";
+import stepFour from "../../assets/images/stepFour.png";
+
 const Tutorial = () => {
   const tutorialSteps = [
     {
       title: "Step 1: Log In",
       description:
         "Log in to GeoQuest using your Google account to create your profile or access your saved game data and continue your adventure.",
-      src: "src/assets/images/stepOne.png",
+      src: stepOne,
     },
     {
       title: "Step 2: Start Playing",
       description:
         'Click "Play" to start the game, recognize your location based on the clues, and predict your potential location on the map.',
-      src: "src/assets/images/stepTwo.png",
+      src: stepTwo,
     },
     {
       title: "Step 3: Pick Location on Map",
       description:
         "Select your predicted location on the map based on the clues and surroundings you've analyzed.",
-      src: "src/assets/images/stepThree.png",
+      src: stepThree,
     },
     {
       title: "Step 4: Check Score and Leaderboard",
       description:
         "Review your score and see where you stand on the leaderboard compared to other players.",
-      src: "src/assets/images/stepFour.png",
+      src: stepFour,
     },
   ];
 

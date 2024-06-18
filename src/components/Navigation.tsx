@@ -1,4 +1,5 @@
 import { LogIn, LogOut, useAuthContext } from "../context/AuthProvider";
+import placeholderUser from "../assets/images/placeholderUser.jpg";
 
 const Navigation = () => {
   const auth = useAuthContext();
@@ -24,9 +25,13 @@ const Navigation = () => {
                 <a href="/dashboard">
                   <img
                     className="rounded-full w-10 p-0.5"
-                    src={auth.user.photoURL!}
+                    src={
+                      auth.user.photoURL ? auth.user.photoURL : placeholderUser
+                    }
                     alt={`${
-                      auth.user.photoURL ? auth.user.photoURL : "Anonymous"
+                      auth.user.displayName
+                        ? auth.user.displayName
+                        : "Anonymous"
                     } profile picture.`}
                   />
                 </a>

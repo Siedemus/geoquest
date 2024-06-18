@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { LogIn, LogOut, useAuthContext } from "../../context/AuthProvider";
+import google from "../../assets/images/google.png";
+import planet from "../../assets/images/planet.png";
 
 const Hero = () => {
   const auth = useAuthContext();
@@ -20,12 +22,7 @@ const Hero = () => {
           onClick={LogIn}
           className="bg-pastelRainbowButton text-noise px-4 py-2 rounded-md text-lg font-bold bg-left bg-buttonZoom hover:bg-right duration-[1.5s] flex gap-2 items-center"
         >
-          Log In with{" "}
-          <img
-            src="src/assets/images/google.png"
-            className="w-6"
-            alt="google logo"
-          />
+          Log In with <img src={google} className="w-6" alt="google logo" />
         </button>
       ) : (
         <div className="flex gap-5">
@@ -43,11 +40,7 @@ const Hero = () => {
           </button>
         </div>
       )}
-      <img
-        className="w-full h-full"
-        src="src/assets/images/planet.png"
-        alt="Planet image."
-      />
+      <img className="w-full h-full" src={planet} alt="Planet image." />
     </main>
   );
 };

@@ -1,12 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { LogOut, useAuthContext } from "../../context/AuthProvider";
 import { useGetLastScore } from "../../hooks/useGetDashboardData";
+import placeholderUser from "../../assets/images/placeholderUser.jpg";
 
 const Dashboard = () => {
   const auth = useAuthContext();
   const navigate = useNavigate();
-  const [lastScore, globalRank, totalScores] =
-    useGetLastScore(auth?.user?.uid!);
+  const [lastScore, globalRank, totalScores] = useGetLastScore(
+    auth?.user?.uid!
+  );
 
   const handleLogOut = () => {
     LogOut();
@@ -19,11 +21,10 @@ const Dashboard = () => {
         <section className="flex flex-col items-center">
           <img
             className="w-36 rounded-full border-4 p-1 mb-5"
-            src={
-              auth.user?.photoURL
-                ? auth.user.photoURL
-                : "src/assets/images/placeholderUser.jpg"
-            }
+            alt={`${
+              auth.user?.displayName ? auth.user.displayName : "Anonymous"
+            } profile picture.`}
+            src={auth.user?.photoURL ? auth.user.photoURL : placeholderUser}
           />
           <h2 className="text-2xl font-extrabold">
             {auth.user?.displayName ? auth.user.displayName : "Anonymous"}

@@ -5,6 +5,7 @@ import useGetRank from "../../hooks/useGetRank";
 import getInitialPosition from "../../utils/getInitialPosition";
 import { useContext } from "react";
 import { GameContext } from "../../context/GameContext";
+import placeholderUser from "../../assets/images/placeholderUser.jpg";
 
 const ScoreContainer = () => {
   const { date, setInitialPosition, setShowScore, score } =
@@ -23,11 +24,14 @@ const ScoreContainer = () => {
       <article className="flex bg-salt p-5 rounded-lg flex-col semi-md:flex-row gap-3">
         <section className="bg-cosmic p-3 flex justify-center items-center flex-col gap-4 rounded-md w-80">
           <img
-            src={auth?.user?.photoURL!}
+            src={auth?.user?.photoURL ? auth.user.photoURL : placeholderUser}
+            alt={`${
+              auth?.user?.displayName ? auth.user.displayName : "Anonymous"
+            } profile picture.`}
             className="rounded-full border-2 border-cloudy p-1"
           />
           <p className="break-words font-extrabold text-lg font-libreFranklin bg-pastelRainbow text-transparent bg-clip-text animate-pastel">
-            {auth?.user?.displayName}
+            {auth?.user?.displayName ? auth.user.displayName : "Anonymous"}
           </p>
         </section>
         <section className="flex flex-col justify-between">
