@@ -9,7 +9,7 @@ import { toast } from "sonner";
 const GuessButton = () => {
   const { selectedPosition, initialPosition, setScore, setDate, setShowScore } =
     useContext(GameContext)!;
-  const [createNewScoreDoc, isPending, error] = useCreateNewScoreDoc();
+  const [createNewScoreDoc] = useCreateNewScoreDoc();
   const auth = useAuthContext();
 
   const handleAGuess = async () => {

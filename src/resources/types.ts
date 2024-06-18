@@ -65,3 +65,8 @@ export type UseGetLastScoreReturn = [
   isPending: boolean,
   error: string | null
 ];
+
+export interface IMovableMarkerProps {
+  selectedPosition: LatLng | null;
+  setSelectedPosition: React.Dispatch<React.SetStateAction<LatLng | null>>;
+}

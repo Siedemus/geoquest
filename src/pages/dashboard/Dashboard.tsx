@@ -5,7 +5,7 @@ import { useGetLastScore } from "../../hooks/useGetDashboardData";
 const Dashboard = () => {
   const auth = useAuthContext();
   const navigate = useNavigate();
-  const [lastScore, globalRank, totalScores, isPending, error] =
+  const [lastScore, globalRank, totalScores] =
     useGetLastScore(auth?.user?.uid!);
 
   const handleLogOut = () => {
