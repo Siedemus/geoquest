@@ -13,5 +13,4 @@ _plugins.unshift(
 );
 export default defineConfig({
   plugins: _plugins,
-  base: "/geoQuest/",
 });
