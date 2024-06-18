@@ -10,7 +10,7 @@ const errorMessage =
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/geoquest",
     element: <Home />,
     errorElement: <ErrorComponent errorMessage={errorMessage} />,
   },
