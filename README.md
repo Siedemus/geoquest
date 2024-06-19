@@ -25,13 +25,14 @@ To get started with the project, follow these steps:
 
    ```sh
    git clone https://github.com/Siedemus/geoquest.git
-   cd geoQuest
    ```
 
 2. **Install Dependencies**
 
    ```sh
-   npm install or bun install
+    npm install
+    # or if using bun
+    bun install
    ```
 
 3. **Set Up Environment Variables**
@@ -61,3 +62,7 @@ To get started with the project, follow these steps:
 5. **Access the Application**
 
    Open your web browser and navigate to `http://localhost:5173` to view the application.
+
+6. **Have fun with my humble project**
+
+   **😁🍷🥳🎊🎉**
