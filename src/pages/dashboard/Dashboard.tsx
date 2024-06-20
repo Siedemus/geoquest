@@ -1,14 +1,13 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { LogOut, useAuthContext } from "../../context/AuthProvider";
 import { useGetLastScore } from "../../hooks/useGetDashboardData";
 import placeholderUser from "../../assets/images/placeholderUser.jpg";
 
 const Dashboard = () => {
+  const { userId } = useParams();
   const auth = useAuthContext();
   const navigate = useNavigate();
-  const [lastScore, globalRank, totalScores] = useGetLastScore(
-    auth?.user?.uid!
-  );
+  const [lastScore, globalRank, totalScores] = useGetLastScore(userId!);
 
   const handleLogOut = () => {
     LogOut();

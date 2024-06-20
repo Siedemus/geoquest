@@ -22,7 +22,7 @@ const Navigation = () => {
                 </button>
               </li>
               <li className="border-2 rounded-full">
-                <a href="/dashboard">
+                <a href={`/dashboard/${auth.user.uid}`}>
                   <img
                     className="rounded-full w-10 p-0.5"
                     src={
