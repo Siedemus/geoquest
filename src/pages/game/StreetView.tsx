@@ -21,7 +21,7 @@ const StreetView = () => {
     }
   }, []);
 
-  return <div ref={containerRef} className="w-full h-full"></div>;
+  return <div ref={containerRef} className="w-full h-full" />;
 };
 
 export default StreetView;
