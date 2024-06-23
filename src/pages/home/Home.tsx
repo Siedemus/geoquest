@@ -8,20 +8,16 @@ import Tutorial from "./Tutorial";
 const Home = () => {
   const auth = useAuthContext();
 
-  return (
+  return auth?.pending ? (
+    <div className="mx-auto my-80 w-max">
+      <Commet color="lightBlue" size="medium" />
+    </div>
+  ) : (
     <>
-      {auth?.pending ? (
-        <div className="mx-auto my-80 w-max">
-          <Commet color="lightBlue" size="medium" />
-        </div>
-      ) : (
-        <>
-          <Hero />
-          <Tutorial />
-          <Leaderboard />
-          <Footer />
-        </>
-      )}
+      <Hero />
+      <Tutorial />
+      <Leaderboard />
+      <Footer />
     </>
   );
 };
