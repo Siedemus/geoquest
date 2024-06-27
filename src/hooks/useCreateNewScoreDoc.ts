@@ -2,7 +2,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { LatLng } from "leaflet";
 import { useState } from "react";
-import { UseCreateNewScoreDocReturn } from "../resources/types";
+import { UseCreateNewScoreDocReturn } from "../assets/resources/types";
 
 const useCreateNewScoreDoc = (): UseCreateNewScoreDocReturn => {
   const [isPending, setIsPending] = useState(false);

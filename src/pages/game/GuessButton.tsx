@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GameContext } from "../../context/GameContext";
-import calculateDistanceInKm from "../../utils/calculateDistanceInKm";
-import calculatePoints from "../../utils/calculatePoints";
+import calculateDistanceInKm from "../../assets/utils/calculateDistanceInKm";
+import calculatePoints from "../../assets/utils/calculatePoints";
 import useCreateNewScoreDoc from "../../hooks/useCreateNewScoreDoc";
 import { useAuthContext } from "../../context/AuthProvider";
 import { toast } from "sonner";
@@ -12,7 +12,7 @@ const GuessButton = () => {
   const [createNewScoreDoc] = useCreateNewScoreDoc();
   const auth = useAuthContext();
 
-  const handleAGuess = async () => {
+  const handleGuess = async () => {
     if (selectedPosition) {
       const distanceInKm = calculateDistanceInKm(
         selectedPosition,
@@ -25,7 +25,7 @@ const GuessButton = () => {
       if (points !== 0) {
         const initialDate = Date.now();
         setDate(initialDate);
-        createNewScoreDoc(
+        await createNewScoreDoc(
           points,
           auth?.user?.uid!,
           auth?.user?.displayName,
@@ -40,9 +40,11 @@ const GuessButton = () => {
     }
   };
 
+  const handleClick = () => handleGuess;
+
   return (
     <button
-      onClick={handleAGuess}
+      onClick={handleClick}
       className="bg-pastelRainbowButton text-noise px-4 py-2 rounded-md text-lg font-bold bg-left bg-buttonZoom hover:bg-right duration-[1.5s] flex gap-2 items-center absolute bottom-2 left-2 md:left-5 md:bottom-5 border border-noise"
     >
       Make a guess

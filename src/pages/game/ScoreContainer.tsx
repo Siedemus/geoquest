@@ -2,7 +2,7 @@ import { useAuthContext } from "../../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { ThreeDot } from "react-loading-indicators";
 import useGetRank from "../../hooks/useGetRank";
-import getInitialPosition from "../../utils/getInitialPosition";
+import getInitialPosition from "../../assets/utils/getInitialPosition";
 import { useContext } from "react";
 import { GameContext } from "../../context/GameContext";
 import placeholderUser from "../../assets/images/placeholderUser.jpg";

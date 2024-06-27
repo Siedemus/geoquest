@@ -1,7 +1,7 @@
 import { LatLng } from "leaflet";
 import { ReactNode, createContext, useState } from "react";
-import getInitialPosition from "../utils/getInitialPosition";
-import { IGameContext } from "../resources/types";
+import getInitialPosition from "../assets/utils/getInitialPosition";
+import { IGameContext } from "../assets/resources/types";
 
 export const GameContext = createContext<undefined | IGameContext>(undefined);
 

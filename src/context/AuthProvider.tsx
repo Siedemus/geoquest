@@ -13,7 +13,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { IAuthContext } from "../resources/types";
+import { IAuthContext } from "../assets/resources/types";
 import { toast } from "sonner";
 
 const AuthContext = createContext<null | IAuthContext>(null);

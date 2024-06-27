@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { ErrorComponentProps } from "../resources/types";
+import { ErrorComponentProps } from "../assets/resources/types";
 
 const ErrorComponent = ({ errorMessage }: ErrorComponentProps) => {
   const navigate = useNavigate();

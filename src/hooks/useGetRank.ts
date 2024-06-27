@@ -1,7 +1,7 @@
 import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { useEffect, useState } from "react";
-import { UseGetRankReturn } from "../resources/types";
+import { UseGetRankReturn } from "../assets/resources/types";
 
 const useGetRank = (userUid: string, date: number): UseGetRankReturn => {
   const [rank, setRank] = useState(0);

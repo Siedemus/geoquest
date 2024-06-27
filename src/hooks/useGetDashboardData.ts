@@ -1,7 +1,7 @@
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { useEffect, useState } from "react";
-import { UseGetLastScoreReturn } from "../resources/types";
+import { UseGetLastScoreReturn } from "../assets/resources/types";
 
 export const useGetLastScore = (uid: string): UseGetLastScoreReturn => {
   const [lastScore, setLastScore] = useState<string | null>(null);
