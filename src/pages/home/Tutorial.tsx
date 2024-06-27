@@ -39,7 +39,7 @@ const Tutorial = () => {
       <ul className="flex justify-evenly flex-wrap gap-8 gap-y-16">
         {tutorialSteps.map((step, i) => (
           <li
-            key={i}
+            key={i + step.title}
             className="bg-salt rounded-lg flex items-center flex-col text-cloudy max-w-[300px] border-2 hover:scale-105 duration-1000"
           >
             <img
