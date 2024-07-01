@@ -40,7 +40,7 @@ const GuessButton = () => {
     }
   };
 
-  const handleClick = () => handleGuess;
+  const handleClick = () => handleGuess();
 
   return (
     <button
