@@ -1,36 +1,6 @@
-import stepOne from "../../assets/images/stepOne.png";
-import stepTwo from "../../assets/images/stepTwo.png";
-import stepThree from "../../assets/images/stepThree.png";
-import stepFour from "../../assets/images/stepFour.png";
+import { tutorialSteps } from "../../assets/resources/tutorialSteps";
 
 const Tutorial = () => {
-  const tutorialSteps = [
-    {
-      title: "Step 1: Log In",
-      description:
-        "Log in to GeoQuest using your Google account to create your profile or access your saved game data and continue your adventure.",
-      src: stepOne,
-    },
-    {
-      title: "Step 2: Start Playing",
-      description:
-        'Click "Play" to start the game, recognize your location based on the clues, and predict your potential location on the map.',
-      src: stepTwo,
-    },
-    {
-      title: "Step 3: Pick Location on Map",
-      description:
-        "Select your predicted location on the map based on the clues and surroundings you've analyzed.",
-      src: stepThree,
-    },
-    {
-      title: "Step 4: Check Score and Leaderboard",
-      description:
-        "Review your score and see where you stand on the leaderboard compared to other players.",
-      src: stepFour,
-    },
-  ];
-
   return (
     <section className="bg-salt w-full h-full pt-12 px-12 pb-20">
       <h2 className="font-extrabold text-4xl text-center md:text-left mb-16 md:text-6xl font-libreFranklin">
